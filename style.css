@@ -1,34 +1,58 @@
-.card {
-    width: 48%;
-    margin: 1%;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    display: inline-block;
-    vertical-align: top;
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	color: var(--tg-theme-text-color);
+	background: var(--tg-theme-bg-color);
 }
 
-.card img {
-    max-width: 100%;
-    height: auto;
+.container {
+	max-width: 390px;
 }
 
-.card h2 {
+.inner {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 250px 250px 250px;
+}
+
+.img {
+	width: 100px;
+}
+
+.item {
+	text-align: center;
+}
+
+.item h2 {
     font-size: 1.5rem;
     margin: 10px 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.card p {
+.item p {
     font-size: 1rem;
     margin: 10px 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.card button {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	border: none;
+	background: rgb(248, 168, 24);
+	border-radius: 10px;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 700;
+
+	transition: background .2s linear;
+}
+
+.btn:hover {
+	background: lightgreen;
+}
+
+.usercard {
+	text-align: center;
 }
