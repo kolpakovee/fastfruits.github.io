@@ -53,6 +53,28 @@ body {
 	background: lightgreen;
 }
 
-.usercard {
-	text-align: center;
+.cart {
+    position: fixed;
+    bottom: 20px; /* Расположение снизу */
+    right: 20px; /* Расположение справа */
+    background-color: white; /* Цвет фона корзины */
+    padding: 10px;
+    border-radius: 25%; /* Для круглой формы */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999; /* Слой поверх других элементов */
 }
+
+.cart img {
+    width: 40px; /* Размер изображения корзины */
+    height: 40px;
+}
+
+.item-count {
+    color: #00C75A; /* Цвет текста */
+    font-size: 16px; /* Размер шрифта счетчика */
+    margin-left: 5px; /* Отступ от изображения корзины */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
