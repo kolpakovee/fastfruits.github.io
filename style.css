@@ -1,18 +1,13 @@
 .card {
-    width: 30%;
+    width: 48%;
     margin: 1%;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 20px;
     background-color: #fff;
-}
-
-.card img {
-    max-width: 100px;
-    max-height: 100px;
-    width: auto;
-    height: auto;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .card img {
