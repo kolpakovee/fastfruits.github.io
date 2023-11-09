@@ -7,7 +7,7 @@
 	<title>Document</title>
 </head>
 <body>
-	<div class="container">
+	<div class="container" id="main">
 		<div class="inner">
 			<div class="item">
 				<img src="img/apple.png" alt="" class="img">
@@ -67,7 +67,7 @@
 
             <div class="item">
 				<img src="img/watermelon.png" alt="" class="img">
-                <h2>Арбуз</h2>
+                <h2>Арбз</h2>
                 <p>Цена: 50₽/кг</p>
 				<button class="btn" id="btn9">Добавить</button>
 			</div>
@@ -78,6 +78,44 @@
         <span class="item-count">0</span>
     </div>
 
+	<form id="form">
+		<input type="text" placeholder="Имя" id="user_name">
+		<input type="text" placeholder="E-mail" id="user_name">
+		<input type="text" placeholder="Телефон" id="user_phone">
+		<button id="order">Оформить</button>
+	</form>
+	<script>
+		let tg = window.Telegram.WebApp;
+		let buy = document.getElementById("cart");
+		let order = document.getElementById("order");
+		tg.expand();
+
+		buy.addEventListener("click", () => {
+			document.getElementById("main").style.display = "none";
+			document.getElementById("form").style.display = "block";
+			document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name
+		})
+		
+		order.addEventListener("click", () => {
+			let name = document.getElementById("user_name").value;
+			let email = document.getElementById("user_email").value;
+			let phone = document.getElementById("user_phone").value;
+			if (name.length < 5) {
+				document.getElementById("error").innerText = "Ошибка в имени";
+				return;
+			}
+			if (email.length < 5) {
+				document.getElementById("error").innerText = "Ошибка в email";
+				return;
+			}
+			if (phone.length < 5) {
+				document.getElementById("error").innerText = "Ошибка в номере телефона";
+				return;
+			}
+			tg.close();
+		})
+
+	</script>
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 	<script src="app.js"></script>
 </body>
