@@ -47,7 +47,7 @@ async def process_start_command(message: Message):
 
     await message.answer(text='Привет!\n Покупай свежие фрукты у нас!', reply_markup=keyboard)
 
-@router.message(ContentType(content_types=['web_app_data']))
+@router.message(F.content_type == 'web_app_data')
 async def web_app(message: Message):
     res = json.loads(message.web_app_data.data)
     await message.answer(f'Ваш заказ принят в обраотку, с вами скоро свяжутся ваши личные сборщики фруктов!\n'
