@@ -25,6 +25,8 @@ from geopy import Point
 from typing import List, Tuple, Dict
 from copy import deepcopy
 
+import json
+
 from aiogram.types.web_app_info import WebAppInfo
 
 router: Router = Router()
@@ -47,4 +49,10 @@ async def process_start_command(message: Message):
 
 @router.message(ContentType(content_types=['web_app_data']))
 async def web_app(message: Message):
-    await message.answer(message.web_app_data.data)
+    res = json.loads(message.web_app_data.data)
+    await message.answer(f'Ваш заказ принят в обраотку, с вами скоро свяжутся ваши личные сборщики фруктов!\n'
+                         f'Name: {res["name"]}\n'
+                         f'Email: {res["email"]}\n'
+                         f'Phone: {res["phone"]}')
+
+# @router.callback_query(CallbackQuery('test'))
