@@ -73,7 +73,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="cart">
+	<div class="cart" id="cart">
         <button id="cartbtn"><img src="img/cart.png" alt="Корзина"></button>
         <span class="item-count">0</span>
     </div>
@@ -91,6 +91,7 @@
 		tg.expand();
 		buy.addEventListener("click", () => {
 			document.getElementById("main").style.display = "none";
+			document.getElementById("cart").style.display = "none";
 			document.getElementById("innermain").style.display = "none";
 			document.getElementById("form").style.display = "block";
 			document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name
