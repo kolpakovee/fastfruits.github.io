@@ -1,4 +1,5 @@
 from main import bot, dp
+from config import config
 
 from aiogram import Router, F
 from aiogram import types
@@ -29,6 +30,10 @@ import json
 
 from aiogram.types.web_app_info import WebAppInfo
 
+async def send_message(message):
+    await bot.send_message(config.tg_bot.admin_ids[0], message)
+
+
 router: Router = Router()
 
 @router.message(Command(commands=['start']))
@@ -50,6 +55,7 @@ async def process_start_command(message: Message):
 @router.message(F.content_type == 'web_app_data')
 async def web_app(message: Message):
     res = json.loads(message.web_app_data.data)
+    send_message(res)
     await message.answer(f'Ваш заказ принят в обраотку, с вами скоро свяжутся ваши личные сборщики фруктов!\n'
                          f'Name: {res["name"]}\n'
                          f'Email: {res["email"]}\n'
