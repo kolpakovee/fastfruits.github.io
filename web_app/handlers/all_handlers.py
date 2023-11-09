@@ -37,10 +37,14 @@ async def process_start_command(message: Message):
     # markup = ReplyKeyboardMarkup()
     # markup.add(types.KeyboardButton('Магазин', web_app=WebAppInfo(url='https://fastfruits.github.io/index.html')))
 
-    menu_botton: KeyboardButton = InlineKeyboardButton(text=' 🏪 Магазин ',
+    menu_botton: KeyboardButton = KeyboardButton(text=' 🏪 Магазин ',
                                                        web_app=WebAppInfo(url='https://kolpakovee.github.io/fastfruits.github.io/index.html'))
 
-    keyboard: ReplyKeyboardMarkup = InlineKeyboardMarkup(inline_keyboard=[[menu_botton]],
+    keyboard: ReplyKeyboardMarkup = ReplyKeyboardMarkup(keyboard=[[menu_botton]],
                                                         resize_keybord=True)
 
     await message.answer(text='Привет!\n Покупай свежие фрукты у нас!', reply_markup=keyboard)
+
+@router.message(ContentType(content_types=['web_app_data']))
+async def web_app(message: Message):
+    await message.answer(message.web_app_data.data)
