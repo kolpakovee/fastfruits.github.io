@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="container" id="main">
-		<div class="inner">
+		<div class="inner" id="innermain">
 			<div class="item">
 				<img src="img/apple.png" alt="" class="img">
                 <h2>Яблоки</h2>
@@ -67,7 +67,7 @@
 
             <div class="item">
 				<img src="img/watermelon.png" alt="" class="img">
-                <h2>Арбз</h2>
+                <h2>Арбуз</h2>
                 <p>Цена: 50₽/кг</p>
 				<button class="btn" id="btn9">Добавить</button>
 			</div>
@@ -92,6 +92,7 @@
 
 		buy.addEventListener("click", () => {
 			document.getElementById("main").style.display = "none";
+			document.getElementById("innermain").style.display = "none";
 			document.getElementById("form").style.display = "block";
 			document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name
 		})
