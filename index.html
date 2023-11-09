@@ -76,6 +76,7 @@
 	<div class="cart" id="cart">
         <img src="img/cart.png" alt="Корзина">
         <span class="item-count">0</span>
+		<button class="btn" id="cartbtn"></button>
     </div>
 
 	<form id="form">
@@ -86,7 +87,7 @@
 	</form>
 	<script>
 		let tg = window.Telegram.WebApp;
-		let buy = document.getElementById("cart");
+		let buy = document.getElementById("cartbtn");
 		let order = document.getElementById("order");
 		tg.expand();
 
